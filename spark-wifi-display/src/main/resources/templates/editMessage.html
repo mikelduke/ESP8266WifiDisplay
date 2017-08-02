@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit the Wifi Display Message</title>
+</head>
+<body>
+	<b>Current Message: </b><br />
+	[[${time}]]<br />
+	<div th:each="line : ${message}">
+		[[${line}]]<br />
+	</div>
+	<hr />
+	<form id="form" action="message" method="post">
+		<div class="form-group">
+			<label for="message">New Message:</label>
+			<div th:each="line, iterStat : ${message}">
+				<input type="text" class="form-control" th:name="${iterStat.index}" id="message" th:maxlength="${rowLength}" th:value="${line}" />
+			</div>
+		</div>
+		<button type="submit" form="form" class="btn btn-default" id="btn_submit">Submit</button>
+	</form>
+</body>
+</html>
