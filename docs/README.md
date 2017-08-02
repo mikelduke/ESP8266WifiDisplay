@@ -38,5 +38,7 @@ Default URLs:
 
 # Screenshots
 
+Spark Wifi Display Edit Page
+
 ![Spark Wifi Display Edit Page Screenshot](spark-wifi-display-edit-page.png?raw=true "Spark Wifi Display Edit Page")
 
