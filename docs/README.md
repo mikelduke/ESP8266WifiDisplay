@@ -36,3 +36,7 @@ Default URLs:
 * [Edit Page](http://localhost:4567/) http://localhost:4567/
 * [Current Message](http://localhost:4567/message) http://localhost:4567/message
 
+# Screenshots
+
+![Spark Wifi Display Edit Page Screenshot](spark-wifi-display-edit-page.png?raw=true "Spark Wifi Display Edit Page")
+
