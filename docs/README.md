@@ -42,3 +42,6 @@ Spark Wifi Display Edit Page
 
 ![Spark Wifi Display Edit Page Screenshot](spark-wifi-display-edit-page.png?raw=true "Spark Wifi Display Edit Page")
 
+Wifi Display
+
+![Wifi Display](wifi-display.jpg?raw=true "Wifi Display")
