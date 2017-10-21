@@ -23,6 +23,9 @@ It uses [Spark](http://sparkjava.com/) a Java microservice framework and a [Thym
 * Run with `java -jar spark-wifi-display-all-1.0.0.jar`
 * Exit using CTRL+C or through task manager
 
+### Deploy on Heroku
+You can deploy the spark service on [Heroku](https://heroku.com). After creating an account, create a new app and point it to this Github project. Heroku will build and deploy your own instance to their cloud. After deployment, set the Config Variables wifi-user and wifi-pass to let you login.
+
 Sample Message:
 
 ```
