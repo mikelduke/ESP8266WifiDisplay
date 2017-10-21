@@ -1,0 +1,3 @@
+include 'spark-wifi-display'
+
+rootProject.name='ESP8266WifiDisplay'

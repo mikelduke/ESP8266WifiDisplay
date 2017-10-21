@@ -17,15 +17,11 @@ dependencies {
 
 task fatJar(type: Jar) {
 	manifest {
-        attributes 'Implementation-Title': 'ESP8266 Wifi Display',
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
           'Implementation-Version': version,
           'Main-Class': 'com.mikelduke.java.wifidisplay.WifiDisplay'
     }
-    baseName = 'spark-wifi-display-all'
+    baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
-
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
-stage.dependsOn(fatJar)
