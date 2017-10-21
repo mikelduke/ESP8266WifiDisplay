@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.qmetric.spark.authentication.AuthenticationDetails;
+import com.qmetric.spark.authentication.BasicAuthenticationFilter;
+
 import spark.ModelAndView;
 import spark.Spark;
 import spark.TemplateEngine;
@@ -37,6 +40,19 @@ public class WifiDisplay {
 			int port = Integer.parseInt(args[0]);
 			Spark.port(port);
 		}
+		
+		String user = System.getenv("wifi-user");
+		String pass = System.getenv("wifi-pass");
+		
+		if (user == null) {
+			user = System.getProperty("wifi-user", "admin");
+		}
+		if (pass == null) {
+			pass = System.getProperty("wifi-pass", "admin");
+		}
+		
+		Spark.before(new BasicAuthenticationFilter(
+				"/*", new AuthenticationDetails(user, pass)));
 		
 		Spark.get("/status", (req, res) -> {
 			res.type("text/plain");
