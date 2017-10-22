@@ -36,10 +36,7 @@ public class WifiDisplay {
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	
 	public static void main(String[] args) {
-		if (args.length > 0) {
-			int port = Integer.parseInt(args[0]);
-			Spark.port(port);
-		}
+		Spark.port(Integer.parseInt(System.getProperty("server.port", "8080")));
 		
 		String user = System.getenv("wifi-user");
 		String pass = System.getenv("wifi-pass");
@@ -51,8 +48,10 @@ public class WifiDisplay {
 			pass = System.getProperty("wifi-pass", "admin");
 		}
 		
-		Spark.before(new BasicAuthenticationFilter(
-				"/*", new AuthenticationDetails(user, pass)));
+		if (Boolean.parseBoolean(System.getProperty("secured", "true"))) {
+			Spark.before(new BasicAuthenticationFilter(
+					"/*", new AuthenticationDetails(user, pass)));
+		}
 		
 		Spark.get("/status", (req, res) -> {
 			res.type("text/plain");
